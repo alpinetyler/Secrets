@@ -87,7 +87,6 @@ app.get("/", function(req, res){
 app.get("/auth/google",
 
   passport.authenticate("google", { scope: ["profile"] })
-  console.log("you're in the auth/google path")
 
 );
 
