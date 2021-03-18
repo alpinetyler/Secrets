@@ -52,7 +52,7 @@ userSchema.plugin(findOrCreate);
 // userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ["password"] });
 
 
-const User = mongoose.model("User", userSchema);
+const User = new mongoose.model("User", userSchema);
 
 passport.use(User.createStrategy());
 
@@ -128,7 +128,7 @@ app.get("/submit", function(req,res){
 });
 
 app.post("/submit", function(req,res){
-  const submittedSecret = req.body.secret
+  const submittedSecret = req.body.secret;
 
   User.findById(req.user.id, function(err, foundUser){
     if(err) {
